@@ -9,8 +9,9 @@ const forecast = (latitude, longitude, callback) => {
         } else if (body.success === 'false') {
             callback('An error occurred !\n' + body.error, undefined) //if does not match with the address or any other error..
         } else {
+            //console.log(body)
             callback(undefined, {
-                forecast: body.current.weather_descriptions[0]
+                forecast: 'Today the weather is ' + body.current.weather_descriptions[0] + 'The temperature is ' + body.current.temperature + ' degrees out, and it is feeling like ' + body.current.feelslike +' degrees out' + ' and the pressure is ' + body.current.pressure
             })
         }
     })
